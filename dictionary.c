@@ -4,10 +4,17 @@
 //forms hash value for string s
 //this produces a starting value in the dictionary array
 unsigned hash(const char *s) {
-	unsigned hashval;
-	//TODO - implement polynomial hashing of string s
-	
-	return hashval ;
+	unsigned hashval = 0;
+	int N = strlen(s);
+	for(int i = 0; i < N; i++) {
+		int num = s[i];
+		int A = 1;
+		for(int j = 0; j < N - 1 - i; j++) {
+			A *= 31;
+		}
+		hashval += num * A;
+	}
+	return hashval;
 }
 
 //Performs search for a key in the hashtable.
