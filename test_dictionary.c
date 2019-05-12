@@ -57,7 +57,7 @@ int main (int argc, char ** argv) {
     FILE *f = fopen("words.txt", "r");
 	int i = 0;
 	while(fgets(words[i], 100, f) != NULL) {
-		words[i][strlen(words[i]) - 2] = '\0';
+		words[i][strcspn(words[i], "\r\n")] = 0;
 		i++;
 	}
 	fclose(f);
